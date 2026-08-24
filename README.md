@@ -52,17 +52,7 @@ shutdown_cmd: "docker compose -f {{.Path}}/docker-compose.yml down"
 
 
 3. DOCKER COMPOSE OVERRIDES (x-dip-*)
-------------------------------------------------------------------------6. DONATE / SUPPORT
 ------------------------------------------------------------------------
-If docker-idle-proxy saved you a few watts, a few euros, or a few hours of
-your time, feel free to buy me a cold beer, coffe or imperial star destroyer:
-
-  - Solana (SOL)        : MiRMtwPWxt2v5YH1hWgq24iJyLNjsfJQQMtjT4MRuYy
-  - TRC-20 (USDT/TRX)   : TUs4o3AjBZUvhmxWu3TymyiEXbv2bhKwLr
-  - BEP-20 (BNB/Tokens) : 0x77CE04b2F3C2220A559657D673d706FF60F6E5D8
-
-Cheers!
-
 The proxy evaluates ONLY the VERY FIRST service defined under `services:` in
 `docker-compose.yml`. If the first service lacks a `ports` section, the compose
 file is skipped.
