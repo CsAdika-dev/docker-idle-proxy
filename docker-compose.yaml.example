@@ -1,0 +1,25 @@
+services:
+  minecraft-test:
+    image: marctv/minecraft-papermc-server:latest
+    restart: no
+    container_name: "harmaska"
+    x-dip-listen_port: "25585"
+    x-dip-start_cmd: "docker compose --project-directory {{.Path}} up -d"
+    x-dip-watch_cmd: "docker exec {{.ContainerName}} rcon-cli --password {{.Env.RCON_PASSWORD}} list | awk '{print $3}'"
+    x-dip-shutdown_cmd: "docker exec {{.ContainerName}} rcon-cli --password {{.Env.RCON_PASSWORD}} stop && sleep 15 && docker compose --project-directory {{.Path}} down --remove-orphans"
+    x-dip-idletime: 60
+    x-dip-check_interval: 1
+    x-dip-cooldown: 20
+    x-dip-ref_val: "0"
+    environment:
+      MEMORYSIZE: "8G"
+      PAPERMC_FLAGS: ""
+    volumes:
+      - ./data:/data:rw
+    ports:
+      - "127.0.0.1:35585:25565" # mc server port
+      - "25586:8100" # bluemap webserver port
+    stdin_open: true
+    tty: true
+volumes:
+  minecraftserver:
