@@ -1,6 +1,6 @@
-=============================================================
-                      DOCKER IDLE PROXY (DIP)
-=============================================================
+=============================
+   DOCKER IDLE PROXY (DIP)
+=============================
 A tiny on-demand TCP proxy for Docker services.
 Starts a Docker Compose service when a client connects, proxies the
 connection, and shuts the service down after it has been idle.
