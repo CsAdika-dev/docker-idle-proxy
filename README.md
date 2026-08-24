@@ -124,8 +124,8 @@ whatever service runs behind it.
 6. DONATE / SUPPORT
 ------------------------------------------------------------------------
 If docker-idle-proxy saved you a few watts, a few euros, or a few hours of
-your time, feel free to buy me a cold beer, coffee or Imperial Star Destroyer
-:D
+your time, feel free to buy me a cold beer, coffee or an Imperial Star 
+Destroyer :D
 
   - Solana (SOL)        : MiRMtwPWxt2v5YH1hWgq24iJyLNjsfJQQMtjT4MRuYy
   - TRC-20 (USDT/TRX)   : TUs4o3AjBZUvhmxWu3TymyiEXbv2bhKwLr
