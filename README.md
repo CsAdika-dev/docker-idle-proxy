@@ -1,6 +1,19 @@
 ========================================================================
                       DOCKER IDLE PROXY (DIP)
 ========================================================================
+A tiny on-demand TCP proxy for Docker services.
+Starts a Docker Compose service when a client connects, proxies the
+connection, and shuts the service down after it has been idle.
+Service-specific logic is intentionally externalized through startCMD,
+watchCMD and shutdownCMD. The proxy doesn't need to know what runs behind it
+— you decide how to integrate it.
+No web UI. No database. No Kubernetes. No unnecessary machinery. Just a small
+daemon doing one job.
+
+Originally built because I got tired of manually starting and stopping my
+home Minecraft servers.
+It turned out to be useful as a generic Docker-backed lazy TCP proxy too.
+
 
 1. OVERVIEW
 ------------------------------------------------------------------------
@@ -11,17 +24,19 @@ on incoming network traffic and internal user activity (e.g., RCON queries).
 
 Key Features:
 - On-Demand Startup: Intercepts incoming TCP connections and starts the stack.
-- Auto-Shutdown: Monitors idle duration and custom check commands (e.g., RCON user count).
+- Auto-Shutdown: Monitors idle duration and custom check commands (e.g., RCON
+user count).
 - Live File Watching: Tracks directory creations, modifications, and deletions.
 - Hot Reloading: Reloads global configurations and stack overrides dynamically.
 - Prometheus Metrics: Exposes real-time runtime metrics.
-- Sensitive Log Sanitization: Automatically masks passwords, tokens, and secrets in logs.
+- Sensitive Log Sanitization: Automatically masks passwords, tokens, and
+secrets in logs.
 
 
 2. CONFIGURATION (config.yaml)
 ------------------------------------------------------------------------
-Global settings are read from `config.yaml` (default paths: `/etc/docker-idle-proxy/`
-or current working directory).
+Global settings are read from `config.yaml` (default paths:
+`/etc/docker-idle-proxy/` or current working directory).
 
 Example global configuration:
 
