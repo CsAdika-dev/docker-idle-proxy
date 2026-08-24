@@ -109,3 +109,15 @@ Instead of baking service-specific adapters into the core codebase, users can
 wire up existing scripts, CLI tools, APIs, or native shell commands via the
 command hooks. This keeps the core lightweight, generic, and decoupled from
 whatever service runs behind it.
+
+
+6. DONATE / SUPPORT
+------------------------------------------------------------------------
+If docker-idle-proxy saved you a few watts, a few euros, or a few hours of
+your time, feel free to buy me a cold beer or coffe:
+
+  - Solana (SOL)        : MiRMtwPWxt2v5YH1hWgq24iJyLNjsfJQQMtjT4MRuYy
+  - TRC-20 (USDT/TRX)   : TUs4o3AjBZUvhmxWu3TymyiEXbv2bhKwLr
+  - BEP-20 (BNB/Tokens) : 0x77CE04b2F3C2220A559657D673d706FF60F6E5D8
+
+Cheers!
