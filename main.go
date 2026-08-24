@@ -509,6 +509,3 @@ func main() {
 	}
 }
 
-
-
-/home/csadi/dev/go/docker-idle-proxy/main.go
