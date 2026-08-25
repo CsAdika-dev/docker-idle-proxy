@@ -3,7 +3,7 @@ services:
     image: marctv/minecraft-papermc-server:latest
     restart: no
     container_name: "a_minecraft_world"
-    x-dip-listen_port: "25585"
+    x-dip-listen_port: "25585" # public client connect port
     x-dip-start_cmd: "docker compose --project-directory {{.Path}} up -d"
     x-dip-watch_cmd: "docker exec {{.ContainerName}} rcon-cli --password {{.Env.RCON_PASSWORD}} list | awk '{print $3}'"
     x-dip-shutdown_cmd: "docker exec {{.ContainerName}} rcon-cli --password {{.Env.RCON_PASSWORD}} stop && sleep 15 && docker compose --project-directory {{.Path}} down --remove-orphans"
