@@ -1,0 +1,17 @@
+[Unit]
+Description=Docker Idle Proxy Daemon
+After=network.target docker.service
+Requires=docker.service
+
+[Service]
+Type=simple
+User=root
+ExecStart=/usr/local/bin/docker-idle-proxy -c /etc/docker-idle-proxy/
+Restart=always
+RestartSec=5sec
+
+StandardOutput=journal
+StandardError=journal
+
+[Install]
+WantedBy=multi-user.target
