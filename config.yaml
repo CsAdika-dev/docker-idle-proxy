@@ -1,6 +1,6 @@
 workdir: "./containers"
 idletime: 120
-check_interval: 2
+check_interval: 5
 cooldown: 300
 metrics_port: 9090
 ref_val: "0"

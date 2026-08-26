@@ -1,0 +1,24 @@
+services:
+  mc-004:
+    image: marctv/minecraft-papermc-server:latest
+    restart: no
+    container_name: "mc-004"
+    x-dip-listen_port: "40040" # public client connect port
+    x-dip-start_cmd: "docker compose --project-directory {{.Path}} up -d"
+    x-dip-watch_cmd: "docker exec {{.ContainerName}} rcon-cli --password {{.Env.RCON_PASSWORD}} list | awk '{print $3}'"
+    x-dip-shutdown_cmd: "docker exec {{.ContainerName}} rcon-cli --password {{.Env.RCON_PASSWORD}} stop && sleep 15 && docker compose --project-directory {{.Path}} down --remove-orphans"
+    x-dip-idletime: 120
+    x-dip-check_interval: 5
+    x-dip-cooldown: 40
+    x-dip-ref_val: "0"
+    environment:
+      MEMORYSIZE: "4G"
+      PAPERMC_FLAGS: ""
+    volumes:
+      - ./data:/data:rw
+    ports:
+      - "127.0.0.1:40041:25565" # mc server port
+    stdin_open: true
+    tty: true
+volumes:
+  minecraftserver:
