@@ -1,9 +1,0 @@
-workdir: "./containers"
-idletime: 120
-check_interval: 2
-cooldown: 300
-metrics_port: 9090
-ref_val: "0"
-start_cmd: "docker compose --project-directory {{.Path}} up -d"
-watch_cmd: "docker exec {{.ContainerName}} rcon-cli list | awk '{print $3}'"
-shutdown_cmd: "docker exec {{.ContainerName}} rcon-cli stop && sleep 15 && docker compose --project-directory {{.Path}} down --remove-orphans"
